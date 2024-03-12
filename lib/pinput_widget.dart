@@ -22,6 +22,8 @@ class _PinputExampleState extends State<PinputExample> {
     super.dispose();
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
     const focusedBorderColor = Color.fromRGBO(23, 171, 144, 1);
@@ -41,7 +43,7 @@ class _PinputExampleState extends State<PinputExample> {
       ),
     );
 
-    print(pinController);
+    print(pinController.text);
 
     /// Optionally you can use form to validate the Pinput
     return Form(
@@ -62,8 +64,9 @@ class _PinputExampleState extends State<PinputExample> {
               defaultPinTheme: defaultPinTheme,
               separatorBuilder: (index) => const SizedBox(width: 8),
               validator: (value) {
-                return value == '2222' ? null : 'Pin is incorrect';
+                return value == '222222' ? null : 'Pin is incorrect';
               },
+              errorText: 'Error',
               onClipboardFound: (value) {
                 debugPrint('onClipboardFound: $value');
                 pinController.setText(value);
